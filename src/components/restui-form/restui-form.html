@@ -1,13 +1,18 @@
-<ion-list>
+<main [formGroup]="form">
+  <ion-list>
 
-  <ion-item>
-    <ion-label floating>Hostname</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Hostname</ion-label>
+      <ion-input type="text" formGroupName="hostname"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Path</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Path</ion-label>
+      <ion-input type="text" formGroupName="path"></ion-input>
+    </ion-item>
 
-</ion-list>
+  </ion-list>
+
+
+  <button ion-button color="Primary">Submit</button>
+</main>
