@@ -18,10 +18,10 @@ npm-debug.log*
 node_modules/
 tmp/
 temp/
-hooks/
+plugins/
 platforms/
 plugins/android.json
-plugins/ios.json
+resources
 www/
 $RECYCLE.BIN/
 
