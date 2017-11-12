@@ -65,23 +65,13 @@
     <button (click)="addHeader()" type="button" ion-button>+</button>
   </ion-item>
 
-  <p>{{form.pristine}}</p>
-  <p>{{form.untouched}}</p>
-  <p>{{form.value}}</p>
-  <p>{{form.status}}</p>
-
-  <p>{{form.get('hostname').pristine}}</p>
-  <p>{{form.get('hostname').untouched}}</p>
-  <p>{{form.get('hostname').value}}</p>
-  <p>{{form.get('hostname').status}}</p>
-
-  <p>{{form.get('path').pristine}}</p>
-  <p>{{form.get('path').untouched}}</p>
-  <p>{{form.get('path').value}}</p>
-  <p>{{form.get('path').status}}</p>
+  <h6>Body</h6>
+  <ion-item>
+    <ion-input class="body" type="text" formControlName="body"></ion-input>
+  </ion-item>
 
   <ion-item>
     <button id="submit-button" type="submit" [disabled]="form.invalid" ion-button color="primary">Submit</button>
-    <button id="clear-button" type="reset" [disabled]="form.pristine" ion-button color="danger" (click)="resetQueries()">Clear</button>
+    <button id="clear-button" type="reset" [disabled]="form.untouched" ion-button color="danger" (click)="reset()">Clear</button>
   </ion-item>
 </main>
