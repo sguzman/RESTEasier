@@ -15,7 +15,7 @@
     <h6>Query Strings</h6>
     <ion-item>
       <div formArrayName="queries">
-        <em *ngIf="queries.controls.length === 0; else elseBlock">No queries :(</em>
+        <em *ngIf="queries.controls.length === 0; else elseBlock">Add queries</em>
         <div #elseBlock *ngFor="let query of queries.controls; let i=index" [formGroupName]="i" >
           <ion-item class="query-header-item">
             <ion-label floating>Header</ion-label>
@@ -26,6 +26,9 @@
             <ion-label floating>Value</ion-label>
             <ion-input type="text">{{query.value}}</ion-input>
           </ion-item>
+          <button class="remove-query-button" (click)="removeQuery(i)" type="button" ion-button color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </button>
 
         </div>
       </div>
@@ -52,7 +55,7 @@
   <p>{{form.get('path').status}}</p>
 
   <ion-item>
-    <button id="submit-button" [disabled]="form.invalid" ion-button color="Primary">Submit</button>
-    <button id="clear-button" [disabled]="form.dirty" ion-button color="danger" (click)="resetQueries([])">Clear</button>
+    <button id="submit-button" type="submit" [disabled]="form.invalid" ion-button color="primary">Submit</button>
+    <button id="clear-button" type="reset" [disabled]="form.pristine" ion-button color="danger" (click)="resetQueries()">Clear</button>
   </ion-item>
 </main>

@@ -15,7 +15,7 @@ export class RestuiFormComponent {
     this.createForm();
   }
 
-  addQuery() {
+  addQuery(): void {
     this.queries.push(this.fb.group(new QueryItem()));
   }
 
@@ -23,13 +23,18 @@ export class RestuiFormComponent {
     return this.form.get('queries') as FormArray;
   };
 
-  resetQueries(queries: QueryItem[]) {
+  resetQueries(): void {
     const queryFGs = [];
     const queryFormArray = this.fb.array(queryFGs);
     this.form.setControl('queries', queryFormArray);
   }
 
-  createForm() {
+  removeQuery(idx: number): void {
+    this.queries.controls.splice(idx, 1);
+  }
+
+
+  createForm(): void {
     this.form = this.fb.group({
       hostname: ['', Validators.required],
       path: ['', Validators.required],

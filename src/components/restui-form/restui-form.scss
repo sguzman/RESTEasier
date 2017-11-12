@@ -8,16 +8,18 @@ restui-form {
   }
 
   ion-item.query-header-item {
+    display: inline;
     float: left;
-    width: 45%;
+    width: 40%;
   }
 
   ion-item.query-value-item {
-    float: right;
-    width: 45%;
+    display: inline;
+    float: left;
+    width: 40%;
   }
 
-  em {
-    text-align: center;
+  button.remove-query-button {
+    float: left;
   }
 }
