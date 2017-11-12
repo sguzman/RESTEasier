@@ -6,4 +6,18 @@ restui-form {
   button#clear-button {
     float: right;
   }
+
+  ion-item.query-header-item {
+    float: left;
+    width: 50%;
+  }
+
+  ion-item.query-value-item {
+    float: right;
+    width: 50%;
+  }
+
+  em {
+    text-align: center;
+  }
 }
