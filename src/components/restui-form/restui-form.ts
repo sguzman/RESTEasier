@@ -19,9 +19,17 @@ export class RestuiFormComponent {
     this.queries.push(this.fb.group(new QueryItem()));
   }
 
+  addHeader(): void {
+    this.headers.push(this.fb.group(new HeaderItem()));
+  }
+
   get queries(): FormArray {
     return this.form.get('queries') as FormArray;
   };
+
+  get headers(): FormArray {
+    return this.form.get('headers') as FormArray;
+  }
 
   resetQueries(): void {
     const queryFGs = [];
@@ -33,6 +41,9 @@ export class RestuiFormComponent {
     this.queries.controls.splice(idx, 1);
   }
 
+  removeHeader(idx: number): void {
+    this.headers.controls.splice(idx, 1);
+  }
 
   createForm(): void {
     this.form = this.fb.group({

@@ -15,16 +15,16 @@
     <h6>Query Strings</h6>
     <ion-item>
       <div formArrayName="queries">
-        <em *ngIf="queries.controls.length === 0; else elseBlock">Add queries</em>
+        <em *ngIf="queries.controls.length === 0; else elseBlock">None</em>
         <div #elseBlock *ngFor="let query of queries.controls; let i=index" [formGroupName]="i" >
           <ion-item class="query-header-item">
             <ion-label floating>Header</ion-label>
-            <ion-input type="text">{{query.value}}</ion-input>
+            <ion-input type="text"></ion-input>
           </ion-item>
 
           <ion-item class="query-value-item">
             <ion-label floating>Value</ion-label>
-            <ion-input type="text">{{query.value}}</ion-input>
+            <ion-input type="text"></ion-input>
           </ion-item>
           <button class="remove-query-button" (click)="removeQuery(i)" type="button" ion-button color="danger">
             <ion-icon name="trash"></ion-icon>
@@ -34,10 +34,36 @@
       </div>
     </ion-item>
     <ion-item>
-      <button (click)="addQuery()" type="button" ion-button>Add a Query</button>
+      <button (click)="addQuery()" type="button" ion-button>+</button>
     </ion-item>
 
   </ion-list>
+
+  <h6>Headers</h6>
+  <ion-item>
+    <div formArrayName="headers">
+      <em *ngIf="headers.controls.length === 0; else elseBlock">None</em>
+      <div #elseBlock *ngFor="let header of headers.controls; let i=index" [formGroupName]="i" >
+        <ion-item class="header-header-item">
+          <ion-label floating>Header</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item class="header-value-item">
+          <ion-label floating>Value</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <button class="remove-header-button" (click)="removeHeader(i)" type="button" ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <button (click)="addHeader()" type="button" ion-button>+</button>
+  </ion-item>
 
   <p>{{form.pristine}}</p>
   <p>{{form.untouched}}</p>
