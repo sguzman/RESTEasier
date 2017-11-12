@@ -52,7 +52,7 @@
   <p>{{form.get('path').status}}</p>
 
   <ion-item>
-    <button id="submit-button" [disabled]="form.status !== 'VALID'" ion-button color="Primary">Submit</button>
+    <button id="submit-button" [disabled]="form.invalid" ion-button color="Primary">Submit</button>
     <button id="clear-button" [disabled]="form.dirty" ion-button color="Primary" (click)="clearFields()">Clear</button>
   </ion-item>
 </main>
