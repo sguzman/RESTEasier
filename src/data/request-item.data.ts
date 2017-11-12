@@ -6,4 +6,5 @@ export class RequestItem {
   path: string = '';
   queries: QueryItem[] = [];
   headers: HeaderItem[] = [];
+  body: string = '';
 }
