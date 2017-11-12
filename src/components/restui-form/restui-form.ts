@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {RequestItem} from "../../data/request-item";
 
-/**
- * Generated class for the RestuiFormComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'restui-form',
   templateUrl: 'restui-form.html'
@@ -20,8 +15,6 @@ export class RestuiFormComponent {
   }
 
   createForm() {
-    this.form = this.fb.group({
-      name: '',
-    });
+    this.form = this.fb.group(new RequestItem());
   }
 }
