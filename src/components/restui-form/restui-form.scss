@@ -7,19 +7,19 @@ restui-form {
     float: right;
   }
 
-  ion-item.query-header-item {
+  ion-item.header-item {
     display: inline;
     float: left;
     width: 40%;
   }
 
-  ion-item.query-value-item {
+  ion-item.value-item {
     display: inline;
     float: left;
     width: 40%;
   }
 
-  button.remove-query-button {
+  button.remove-button {
     float: left;
   }
 }

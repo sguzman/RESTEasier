@@ -17,16 +17,16 @@
       <div formArrayName="queries">
         <em *ngIf="queries.controls.length === 0; else elseBlock">None</em>
         <div #elseBlock *ngFor="let query of queries.controls; let i=index" [formGroupName]="i" >
-          <ion-item class="query-header-item">
+          <ion-item class="header-item">
             <ion-label floating>Header</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
 
-          <ion-item class="query-value-item">
+          <ion-item class="value-item">
             <ion-label floating>Value</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
-          <button class="remove-query-button" (click)="removeQuery(i)" type="button" ion-button color="danger">
+          <button class="remove-button" (click)="removeQuery(i)" type="button" ion-button color="danger">
             <ion-icon name="trash"></ion-icon>
           </button>
 
@@ -44,16 +44,16 @@
     <div formArrayName="headers">
       <em *ngIf="headers.controls.length === 0; else elseBlock">None</em>
       <div #elseBlock *ngFor="let header of headers.controls; let i=index" [formGroupName]="i" >
-        <ion-item class="header-header-item">
+        <ion-item class="header-item">
           <ion-label floating>Header</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
 
-        <ion-item class="header-value-item">
+        <ion-item class="value-item">
           <ion-label floating>Value</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
-        <button class="remove-header-button" (click)="removeHeader(i)" type="button" ion-button color="danger">
+        <button class="remove-button" (click)="removeHeader(i)" type="button" ion-button color="danger">
           <ion-icon name="trash"></ion-icon>
         </button>
 
