@@ -23,6 +23,7 @@ import {RestuiFormComponent} from "../components/restui-form/restui-form";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    RestuiFormComponent,
     HomePage
   ],
   providers: [
