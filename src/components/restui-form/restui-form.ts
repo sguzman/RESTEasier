@@ -23,18 +23,8 @@ export class RestuiFormComponent {
     return this.form.get('queries') as FormArray;
   };
 
-  clearFields() {
-    this.form.reset({
-      hostname:    '',
-      path:    '',
-      queries: new QueryItem(),
-      headers: new HeaderItem(),
-      body: ''
-    })
-  }
-
-  setQueries(queries: QueryItem[]) {
-    const queryFGs = queries.map(qt => this.fb.group(qt));
+  resetQueries(queries: QueryItem[]) {
+    const queryFGs = [];
     const queryFormArray = this.fb.array(queryFGs);
     this.form.setControl('queries', queryFormArray);
   }
@@ -46,7 +36,6 @@ export class RestuiFormComponent {
       queries: this.fb.array([]),
       headers: this.fb.array([]),
       body: ['', Validators.required]
-
     });
   }
 }

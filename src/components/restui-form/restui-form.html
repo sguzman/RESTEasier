@@ -53,6 +53,6 @@
 
   <ion-item>
     <button id="submit-button" [disabled]="form.invalid" ion-button color="Primary">Submit</button>
-    <button id="clear-button" [disabled]="form.dirty" ion-button color="Primary" (click)="clearFields()">Clear</button>
+    <button id="clear-button" [disabled]="form.dirty" ion-button color="danger" (click)="resetQueries([])">Clear</button>
   </ion-item>
 </main>
