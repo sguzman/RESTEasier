@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {RequestItem} from "../../data/request-item.data";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {QueryItem} from "../../data/query-item.data";
+import {HeaderItem} from "../../data/header-item.data";
 
 @Component({
   selector: 'restui-form',
@@ -14,7 +15,38 @@ export class RestuiFormComponent {
     this.createForm();
   }
 
+  addQuery() {
+    this.queries.push(this.fb.group(new QueryItem()));
+  }
+
+  get queries(): FormArray {
+    return this.form.get('queries') as FormArray;
+  };
+
+  clearFields() {
+    this.form.reset({
+      hostname:    '',
+      path:    '',
+      queries: new QueryItem(),
+      headers: new HeaderItem(),
+      body: ''
+    })
+  }
+
+  setQueries(queries: QueryItem[]) {
+    const queryFGs = queries.map(qt => this.fb.group(qt));
+    const queryFormArray = this.fb.array(queryFGs);
+    this.form.setControl('queries', queryFormArray);
+  }
+
   createForm() {
-    this.form = this.fb.group(new RequestItem());
+    this.form = this.fb.group({
+      hostname: ['', Validators.required],
+      path: ['', Validators.required],
+      queries: this.fb.array([]),
+      headers: this.fb.array([]),
+      body: ['', Validators.required]
+
+    });
   }
 }

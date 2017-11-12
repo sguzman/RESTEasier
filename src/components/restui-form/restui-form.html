@@ -1,6 +1,7 @@
 <main [formGroup]="form">
   <ion-list>
 
+    <h6>URL</h6>
     <ion-item>
       <ion-label floating>Hostname</ion-label>
       <ion-input type="text" formGroupName="hostname"></ion-input>
@@ -11,8 +12,47 @@
       <ion-input type="text" formGroupName="path"></ion-input>
     </ion-item>
 
+    <h6>Query Strings</h6>
+    <ion-item>
+      <div formArrayName="queries">
+        <em *ngIf="queries.controls.length === 0; else elseBlock">No queries :(</em>
+        <div #elseBlock *ngFor="let query of queries.controls; let i=index" [formGroupName]="i" >
+          <ion-item class="query-header-item">
+            <ion-label floating>Header</ion-label>
+            <ion-input type="text">{{query.value}}</ion-input>
+          </ion-item>
+
+          <ion-item class="query-value-item">
+            <ion-label floating>Value</ion-label>
+            <ion-input type="text">{{query.value}}</ion-input>
+          </ion-item>
+
+        </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <button (click)="addQuery()" type="button" ion-button>Add a Query</button>
+    </ion-item>
+
   </ion-list>
 
+  <p>{{form.pristine}}</p>
+  <p>{{form.untouched}}</p>
+  <p>{{form.value}}</p>
+  <p>{{form.status}}</p>
 
-  <button ion-button color="Primary">Submit</button>
+  <p>{{form.get('hostname').pristine}}</p>
+  <p>{{form.get('hostname').untouched}}</p>
+  <p>{{form.get('hostname').value}}</p>
+  <p>{{form.get('hostname').status}}</p>
+
+  <p>{{form.get('path').pristine}}</p>
+  <p>{{form.get('path').untouched}}</p>
+  <p>{{form.get('path').value}}</p>
+  <p>{{form.get('path').status}}</p>
+
+  <ion-item>
+    <button id="submit-button" [disabled]="form.status !== 'VALID'" ion-button color="Primary">Submit</button>
+    <button id="clear-button" [disabled]="form.dirty" ion-button color="Primary" (click)="clearFields()">Clear</button>
+  </ion-item>
 </main>
