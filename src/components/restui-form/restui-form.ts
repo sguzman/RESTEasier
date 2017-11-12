@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {RequestItem} from "../../data/request-item";
+import {RequestItem} from "../../data/request-item.data";
 
 @Component({
   selector: 'restui-form',
