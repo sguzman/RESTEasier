@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 /**
  * Generated class for the RestuiFormComponent component.
@@ -11,12 +12,16 @@ import { Component } from '@angular/core';
   templateUrl: 'restui-form.html'
 })
 export class RestuiFormComponent {
+  form: FormGroup;
 
-  text: string;
-
-  constructor() {
+  constructor(private fb: FormBuilder) {
     console.log('Hello RestuiFormComponent Component');
-    this.text = 'Hello World';
+    this.createForm();
   }
 
+  createForm() {
+    this.form = this.fb.group({
+      name: '',
+    });
+  }
 }
