@@ -1,3 +1,9 @@
 restui-form {
+  button#submit-button {
+    float: left;
+  }
 
+  button#clear-button {
+    float: right;
+  }
 }
