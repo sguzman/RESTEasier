@@ -31,10 +31,8 @@ export class RestuiFormComponent {
     return this.form.get('headers') as FormArray;
   }
 
-  resetQueries(): void {
-    const queryFGs = [];
-    const queryFormArray = this.fb.array(queryFGs);
-    this.form.setControl('queries', queryFormArray);
+  reset(): void {
+    this.form.reset();
   }
 
   removeQuery(idx: number): void {
